@@ -32,13 +32,14 @@ end
 def print(names)
   counter = 0 
   while counter < names.length do
-    puts "#{counter + 1}. #{names[counter][:name]} (#{names[counter][:hobby]} hobby) (#{names[counter][:birth_place]} country of birth) (#{names[counter][:cohort]} cohort)"
+    str = "#{counter + 1}. #{names[counter][:name]} (#{names[counter][:hobby]} hobby) (#{names[counter][:birth_place]} country of birth) (#{names[counter][:cohort]} cohort)"
+    puts str.center(80)
     counter += 1
   end
 end
 
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  puts "Overall, we have #{names.count} great students".center(80)
 end
 #nothing happens until we call the methods
 students = input_students
