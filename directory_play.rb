@@ -23,7 +23,7 @@ def print_header
 end
 def print(names)
   names.each_with_index do |name, index|
-    if name[:name][0] == "C"
+    if name[:name].length < 12
     puts "#{index + 1}. #{name[:name]} (#{name[:cohort]} cohort)"
     end
   end
@@ -32,7 +32,6 @@ def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 #nothing happens until we call the methods
-
 students = input_students
 print_header
 print(students)
@@ -54,9 +53,9 @@ students = [
 
 def test(children)
   children.each do |child|
-    if child[:name][0] == "T" 
+      if child[:name].length > 12
       puts "#{child[:name]}"
-    end
+      end
   end
 end
 
