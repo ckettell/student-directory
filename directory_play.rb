@@ -2,7 +2,7 @@ def date_checker(date)
   months = ["january", "february", "march", "april", "may", "june", "july", 
   "august", "september", "october", "november", "december"]
   # if there's a typo or no date listed, the default is november
-  date = "november" if !months.include?(date)
+  date = "november" if !months.include?(date.downcase)
   return date
 end
 
@@ -24,6 +24,7 @@ def input_students
     #get another name from the user 
     name = gets.chomp
     break if name.empty?
+    #get another month from user
     month = gets.chomp
     month = date_checker(month)
   end
@@ -55,3 +56,4 @@ students = input_students
 print_header
 print(students)
 print_footer(students)
+puts students
