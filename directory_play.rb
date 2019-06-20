@@ -58,8 +58,8 @@ end
 
 # and then print them
 def print_header
-  puts "The students of Villains Academy"
-  puts "---------"
+  puts "The students of Villains Academy".center(80) 
+  puts "---------".center(80) 
 end
 
 #print by cohort
@@ -79,11 +79,18 @@ def print(names)
 end
 
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students".center(80)
+  if names.count == 0
+    puts "No students here".center(80)
+  elsif names.count == 1
+    puts "Overall, we have #{names.count} great student".center(80)   
+  else
+    puts "Overall, we have #{names.count} great students".center(80)
+  end
 end
 #nothing happens until we call the methods
 students = input_students
 puts students
 print_header
 print(students)
+puts "---------".center(80) 
 print_footer(students)
