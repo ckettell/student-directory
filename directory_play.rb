@@ -6,7 +6,6 @@ def date_checker(date)
   return date
 end
 
-
 def input_students
   puts "Please enter the students' name and cohort"
   puts "To finish, just hit the return button twice"
@@ -31,14 +30,36 @@ def input_students
 students 
 end
 
+# method below organises students by cohort
+
+
+def by_cohort(students)
+  sorted_by_cohort = {}
+  students.each do |student|
+  if sorted_by_cohort[student[:cohort]].nil?
+    sorted_by_cohort[student[:cohort]] = student[:name]
+  else 
+    sorted_by_cohort[student[:cohort]] << (student[:name])
+  end
+  sorted_by_cohort.each do |key, value|
+    puts "#{key} #{value}"
+  end
+  end
+end
+
 # and then print them
 def print_header
   puts "The students of Villains Academy"
   puts "---------"
 end
 
+#print by cohort
+def print_cohort
+  puts sorted_by_cohort
+end
 
 
+# print students by names and cohort
 def print(names)
   counter = 0 
   while counter < names.length do
@@ -53,7 +74,8 @@ def print_footer(names)
 end
 #nothing happens until we call the methods
 students = input_students
+puts students
 print_header
 print(students)
 print_footer(students)
-puts students
+by_cohort(students)
