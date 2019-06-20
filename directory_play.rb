@@ -1,8 +1,17 @@
 def date_checker(date)
+  while true do
   months = ["january", "february", "march", "april", "may", "june", "july", 
   "august", "september", "october", "november", "december"]
-  # if there's a typo or no date listed, the default is november
-  date = "november" if !months.include?(date.downcase)
+    if date.empty?
+      date = "november"
+      break
+    elsif !months.include?(date.downcase)
+      puts "Typo, go again"
+      date = gets.chomp
+    else
+    return date
+    end
+  end
   return date
 end
 
@@ -78,4 +87,3 @@ puts students
 print_header
 print(students)
 print_footer(students)
-by_cohort(students)
