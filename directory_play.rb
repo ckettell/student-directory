@@ -9,7 +9,7 @@ def date_checker(date)
       break
     elsif !months.include?(date.downcase)
       puts "Typo, go again"
-      date = gets.chomp
+      date = STDIN.gets.chomp
     else
     return date
     end
@@ -18,12 +18,12 @@ def date_checker(date)
 end
 
 def input_students
-  puts "Please enter the students' name and cohort"
+  puts "Please enter the student's name and cohort"
   puts "To finish, just hit the return button twice"
   #great empty array
   #get the first name
-  name = gets.chomp
-  month = gets.chomp
+  name = STDIN.gets.chomp
+  month = STDIN.gets.chomp
   month = date_checker(month)
   #while the name is not empty, repeat this code
   while !name.empty? do
@@ -31,10 +31,10 @@ def input_students
     add_students(name, month)
     puts "Now we have #{@students.count} students"
     #get another name from the user 
-    name = gets.chomp
+    name = STDIN.gets.chomp
     break if name.empty?
     #get another month from user
-    month = gets.chomp
+    month = STDIN.gets.chomp
     month = date_checker(month)
   end
 @students 
@@ -162,12 +162,13 @@ end
 def interactive_menu
   loop do 
     print_menu
-    process(gets.chomp)
+    process(STDIN.gets.chomp)
   end
 end
 
 
 #nothing happens until we call the methods
+try_load_students
 interactive_menu
 puts students
 print_header
